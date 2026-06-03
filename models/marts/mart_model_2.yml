@@ -1,0 +1,6 @@
+models:
+  - name: mart_model_2
+    config:
+      state:
+        lag_tolerance: 1m
+        require_fresh_data_from: all

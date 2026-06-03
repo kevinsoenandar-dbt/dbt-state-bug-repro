@@ -1,0 +1,5 @@
+models:
+  - name: mart_model_1
+    config:
+      state:
+        lag_tolerance: 1m
