@@ -1,0 +1,20 @@
+name: 'dbt_state_bug_repro'
+version: '1.0.0'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_state_bug_repro:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
