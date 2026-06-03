@@ -1,0 +1,5 @@
+models:
+  - name: stg_model_3
+    config:
+      state:
+        lag_tolerance: 1m
