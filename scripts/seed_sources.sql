@@ -37,3 +37,24 @@ insert into src_3 (id, category) values
     (1, 'gold'),
     (2, 'silver'),
     (3, 'bronze');
+
+-- Scenario 1
+-- insert into src_1 (id, name) values
+--     (4, 'john');
+
+-- Scenario 2
+-- insert into src_1 (id, name) values
+--     (5, 'cecillia');
+
+-- insert into src_3 (id, category) values
+--     (5, 'gold');
+
+-- Scenario 3
+-- insert into src_1 (id, name) values
+--     (6, 'bryan');
+
+-- insert into src_2 (id, amount) values
+--     (6, 5.87);
+
+-- insert into src_3 (id, category) values
+--     (6, 'silver');
