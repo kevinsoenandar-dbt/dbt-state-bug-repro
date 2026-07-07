@@ -1,0 +1,30 @@
+name: dbt Cloud CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  trigger-dbt-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r ci/requirements.txt --quiet
+
+      - name: Trigger dbt Cloud CI job
+        env:
+          DBT_CLOUD_SERVICE_TOKEN: ${{ secrets.DBT_CLOUD_SERVICE_TOKEN }}
+          DBT_CLOUD_ACCOUNT_ID: ${{ vars.DBT_CLOUD_ACCOUNT_ID }}
+          DBT_CLOUD_JOB_ID: ${{ vars.DBT_CLOUD_JOB_ID }}
+          DBT_CLOUD_BASE_URL: ${{ vars.DBT_CLOUD_BASE_URL }}
+          CI_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+          DBT_JOB_CAUSE: "GitHub Actions — PR #${{ github.event.pull_request.number }}"
+        run: python ci/trigger_dbt_ci.py
