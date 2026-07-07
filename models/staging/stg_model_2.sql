@@ -4,5 +4,6 @@ with source as (
 
 select
     id,
-    amount
+    amount, 
+    amount * 0.95 as ninety_fifth
 from source
