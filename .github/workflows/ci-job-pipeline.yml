@@ -17,7 +17,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install -r ci/requirements.txt --quiet
+        run: pip install -r ../ci/requirements.txt --quiet
 
       - name: Trigger dbt Cloud CI job
         env:
@@ -27,4 +27,4 @@ jobs:
           DBT_CLOUD_BASE_URL: ${{ vars.DBT_CLOUD_BASE_URL }}
           CI_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
           DBT_JOB_CAUSE: "GitHub Actions — PR #${{ github.event.pull_request.number }}"
-        run: python ci/trigger_dbt_ci.py
+        run: python ../ci/trigger_dbt_ci.py
