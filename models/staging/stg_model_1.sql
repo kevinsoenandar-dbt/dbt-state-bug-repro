@@ -4,5 +4,6 @@ with source as (
 
 select
     id,
-    name
+    name,
+    md5(id) as hash_key
 from source
